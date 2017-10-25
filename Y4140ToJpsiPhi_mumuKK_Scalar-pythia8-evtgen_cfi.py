@@ -15,13 +15,13 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 	              decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
 		      particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),		      
 		      list_forced_decays = cms.vstring('myY4140'),
-		      operates_on_particles = cms.vint32(20443),
+		      operates_on_particles = cms.vint32(10441),
 		      convertPythiaCodes = cms.untracked.bool(False),
 		      user_decay_embedded = cms.vstring(
 			      """
 			      ################################################################################
 			      #
-			      Alias      myY4140      chi_c1   ## chi_c1 for vector particle assumption.
+			      Alias      myY4140      chi_c0   ## chi_c1 for vector particle assumption.
 			      Particle   myY4140      4.140 0.092
 			      ChargeConj myY4140      myY4140
 			      #
@@ -53,7 +53,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         pythia8CommonSettingsBlock,
         pythia8CUEP8M1SettingsBlock,
         processParameters = cms.vstring(
-             'Onia:all(3PJ) = 10441',
+             'Charmonium:states(3PJ) = 10441',
              'StringFlav:mesonSL1S1J0 = 1.0000', # Scalar production : L=1 && S=1 && J=0
 	      'Charmonium:O(3PJ)[3P0(1)] = 0.05', # The color-singlet long-distance matrix elements
 	      'Charmonium:O(3PJ)[3S1(8)] = 0.0031', # The color-singlet long-distance matrix elements
@@ -73,7 +73,6 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         parameterSets = cms.vstring('pythia8CommonSettings',
                                         'pythia8CUEP8M1Settings',
                                         'processParameters',
-                                    #'bbbarSettings'                                                                                                                  
                                        )
     )
 )
@@ -106,9 +105,9 @@ jpsifilter = cms.EDFilter(
     MotherID        = cms.untracked.int32(10441),
     ParticleID      = cms.untracked.int32(443),
     DaughterIDs     = cms.untracked.vint32(13, -13),
-    MinPt           = cms.untracked.vdouble(-1.0, -1.0),
-    MinEta          = cms.untracked.vdouble(-9999, -9999),
-    MaxEta          = cms.untracked.vdouble( 9999,  9999)
+    MinPt           = cms.untracked.vdouble(0.5, 0.5),
+    MaxEta          = cms.untracked.vdouble(2.5, 2.5),
+    MinEta          = cms.untracked.vdouble(-2.5, -2.5)
     )
 
 phifilter = cms.EDFilter(
@@ -118,9 +117,9 @@ phifilter = cms.EDFilter(
     MotherID        = cms.untracked.int32(10441),
     ParticleID      = cms.untracked.int32(333),
     DaughterIDs     = cms.untracked.vint32(321, -321),
-    MinPt           = cms.untracked.vdouble(-1.0, -1.0),
-    MinEta          = cms.untracked.vdouble(-9999, -9999),
-    MaxEta          = cms.untracked.vdouble( 9999,  9999)
+    MinPt           = cms.untracked.vdouble(0.5, 0.5),
+    MaxEta          = cms.untracked.vdouble(2.5, 2.5),
+    MinEta          = cms.untracked.vdouble(-2.5, -2.5)
     )
 
 
