@@ -105,7 +105,7 @@ jpsifilter = cms.EDFilter(
 	MotherID        = cms.untracked.int32(20443),  
 	ParticleID      = cms.untracked.int32(443),  
         DaughterIDs     = cms.untracked.vint32(13, -13),
-	MinPt           = cms.untracked.vdouble(2.5, 2.5), 
+	MinPt           = cms.untracked.vdouble(0.5, 0.5), 
 	MinEta          = cms.untracked.vdouble(-2.5, -2.5), 
 	MaxEta          = cms.untracked.vdouble( 2.5,  2.5)
     )
@@ -117,9 +117,9 @@ phifilter = cms.EDFilter(
     MotherID        = cms.untracked.int32(20443),
     ParticleID      = cms.untracked.int32(333),
     DaughterIDs     = cms.untracked.vint32(321, -321),
-    MinPt           = cms.untracked.vdouble(-1.0, -1.0),
-    MinEta          = cms.untracked.vdouble(-9999, -9999),
-    MaxEta          = cms.untracked.vdouble( 9999,  9999)
+    MinPt           = cms.untracked.vdouble(0.5, 0.5),
+    MinEta          = cms.untracked.vdouble(-2.5, -2.5),
+    MaxEta          = cms.untracked.vdouble(2.5,  2.5)
     )
                          
 ProductionFilterSequence = cms.Sequence(generator
