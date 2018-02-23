@@ -16,7 +16,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
 	    list_forced_decays = cms.vstring('MyB+',
                                        'MyB-'),
-	    operates_on_particles = cms.vint32(531, -531),
+	    operates_on_particles = cms.vint32(521, -521),
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded = cms.vstring(
             """ 
@@ -55,6 +55,10 @@ Decay myPhi
 1.000      K+    K-   VSS;
 Enddecay
 #
+Decay MyB-
+1.000     myY4140   K-      PHSP;
+Enddecay
+#
 End"""
         )
     
@@ -80,14 +84,14 @@ bfilter = cms.EDFilter(
     "PythiaFilter", 
     MaxEta = cms.untracked.double(9999.),
     MinEta = cms.untracked.double(-9999.),
-    ParticleID = cms.untracked.int32(531) 
+    ParticleID = cms.untracked.int32(521) 
     )
 
 decayfilter = cms.EDFilter(
     "PythiaDauVFilter",
     verbose         = cms.untracked.int32(4*3),
     NumberDaughters = cms.untracked.int32(2),
-    ParticleID      = cms.untracked.int32(531),
+    ParticleID      = cms.untracked.int32(521),
     DaughterIDs     = cms.untracked.vint32(10441, 321),
     MinPt           = cms.untracked.vdouble(-1.0, -1.0),
     MinEta          = cms.untracked.vdouble(-9999., -9999.),
