@@ -1,0 +1,8 @@
+process.writer = cms.EDAnalyzer("HepMCEventWriter",
+                                hepMCProduct = cms.InputTag("generator"))
+
+# Path and EndPath definitions
+process.output = cms.EndPath(process.writer)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.output)
